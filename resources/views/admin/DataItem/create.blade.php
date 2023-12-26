@@ -38,11 +38,6 @@
                             class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="stock" class="form-control-label">Stok</label>
-                        <input type="number" id="stock" name="stock" placeholder="Masukkan stok barang"
-                            class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label for="price" class="form-control-label">Harga</label>
                         <div class="input-group">
                             <span class="input-group-text">$</span>

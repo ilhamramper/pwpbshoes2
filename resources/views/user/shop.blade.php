@@ -217,11 +217,9 @@
                                 </a>
                             @endif
                         @elseif ($items->total() <= $items->perPage() && $items->total() > 0)
-                            <!-- Tampilkan hanya satu halaman jika produk sudah tampil semua -->
                             <a href="{{ $items->url(1) }}&{{ http_build_query(request()->except('page')) }}"
                                 class="active">1</a>
                         @else
-                            <!-- Tampilkan teks jika tidak ada produk -->
                             <h5>Belum Ada Produk Yang Tersedia</h5>
                         @endif
                     </div>

@@ -4,12 +4,8 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Detail Data Order</h1>
+        <h1 class="h3 mb-2 text-gray-800">Detail Order</h1>
 
-        <!-- Form Input Data -->
-        <style>
-
-        </style>
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary">Data Order {{ $orderNumber }}</h6>
@@ -23,27 +19,27 @@
                                 <h4>Order Info</h4>
                                 <table class="table">
                                     <tr>
-                                        <td style="width: 25%">Order Number</td>
+                                        <td style="width: 27%">Order Number</td>
                                         <td style="width: 5%">:</td>
                                         <th style="width: 55%">{{ $orderNumber }}</th>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25%">Order Time</td>
+                                        <td style="width: 27%">Order Time</td>
                                         <td style="width: 5%">:</td>
                                         <th style="width: 55%">{{ $date }}</th>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25%">Total</td>
+                                        <td style="width: 27%">Total</td>
                                         <td style="width: 5%">:</td>
                                         <th style="width: 55%">${{ number_format($total, 2) }}</th>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25%">Payment Method</td>
+                                        <td style="width: 27%">Payment Method</td>
                                         <td style="width: 5%">:</td>
                                         <th style="width: 55%">{{ $paymentMethod }}</th>
                                     </tr>
                                     <tr>
-                                        <td style="width: 25%">Phone</td>
+                                        <td style="width: 27%">Phone</td>
                                         <td style="width: 5%">:</td>
                                         <th style="width: 55%">{{ $order->phone }}</th>
                                     </tr>
@@ -97,15 +93,15 @@
                                 <tbody>
                                     @foreach ($orderDetails as $item)
                                         <tr>
-                                            <td>
-                                                <p>{{ $item['item_name'] }}</p>
-                                            </td>
-                                            <td>
-                                                <p>x {{ $item['qty'] }}</p>
-                                            </td>
-                                            <td>
-                                                <p>${{ number_format($item['total'], 2) }}</p>
-                                            </td>
+                                            <th>
+                                                <p><strong>{{ $item['item_name'] }}</strong></p>
+                                            </th>
+                                            <th>
+                                                <p><strong>x {{ $item['qty'] }}</strong></p>
+                                            </th>
+                                            <th>
+                                                <p><strong>${{ number_format($item['total'], 2) }}</strong></p>
+                                            </th>
                                         </tr>
                                     @endforeach
                                     <tr>
@@ -116,7 +112,7 @@
                                             <p></p>
                                         </td>
                                         <th>
-                                            <p>${{ $subtotal }}</p>
+                                            <p>${{ number_format($subtotal, 2) }}</p>
                                         </th>
                                     </tr>
                                     <tr>

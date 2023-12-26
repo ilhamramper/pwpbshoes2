@@ -49,14 +49,18 @@ Route::get('/indextables', [adminTablesController::class, 'index'])->name('table
 Route::resource('user', adminTablesController::class);
 //barang dari admin
 Route::get('/data-barang', [ItemController::class, 'item'])->name('dataItem');
+Route::get('/data-barang/{id}', [ItemController::class, 'detail'])->name('detailItem');
+Route::post('/add-stock', [ItemController::class, 'addStock'])->name('addStock');
+Route::post('/update-stock', [ItemController::class, 'updateStock'])->name('updateStock');
+Route::delete('/delete-stock/{id}', [ItemController::class, 'deleteStock'])->name('deleteStock');
 Route::get('/tambah-barang', [ItemController::class, 'create'])->name('createItem');
 Route::post('/barang/store', [ItemController::class, 'store'])->name('storeItem');
-Route::get('/barang/{id}/edit', [ItemController::class, 'edit'])->name('editItem');
+Route::get('/barang/edit/{id}', [ItemController::class, 'edit'])->name('editItem');
 Route::put('/barang/{id}', [ItemController::class, 'update'])->name('updateItem');
 Route::delete('/barang/{id}', [ItemController::class, 'destroy'])->name('destroyItem');
 //data order untuk admin
 Route::get('/data-order', [dataOrderController::class, 'order'])->name('dataOrder');
-Route::post('/data-order/update-status', [dataOrderController::class, 'updateStatus'])->name('dataOrder.updateStatus');
+Route::patch('/update-order-status/{id}', [dataOrderController::class, 'updateOrderStatus'])->name('updateOrderStatus');
 Route::get('/data-order/{id}', [dataOrderController::class, 'detail'])->name('detailOrder');
 //route for contack
 Route::resource('/contack', contackController::class);

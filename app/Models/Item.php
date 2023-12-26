@@ -12,4 +12,9 @@ class Item extends Model
     protected $fillable = [
         'name', 'image', 'stock', 'price', 'discount', 'description',
     ];
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }

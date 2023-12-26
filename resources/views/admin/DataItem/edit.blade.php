@@ -13,10 +13,10 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary">Form Edit</h6>
-                <a href="{{ route('dataItem') }}" class="btn btn-primary">x</a>
+                <a href="{{ route('detailItem', $item->id) }}" class="btn btn-primary">x</a>
             </div>
             <div class="card-body">
-                <form onsubmit="return confirm('Apakah Anda Yakin ?');" enctype="multipart/form-data" method="POST"
+                <form onsubmit="return confirm('Are you sure want to update this item?');" enctype="multipart/form-data" method="POST"
                     action="{{ route('updateItem', $item->id) }}">
                     @csrf
                     @method('PUT')
@@ -38,11 +38,6 @@
                         <label for="description" class="form-control-label">Deskripsi Singkat Sepatu</label>
                         <input type="text" id="description" name="description" placeholder="Masukkan deskripsi barang"
                             class="form-control" value="{{ old('description', $item->description) }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="stock" class="form-control-label">Stok</label>
-                        <input type="number" id="stock" name="stock" placeholder="Masukkan stok barang"
-                            class="form-control"value="{{ old('stock', $item->stock) }}">
                     </div>
                     <div class="form-group">
                         <label for="price" class="form-control-label">Harga</label>

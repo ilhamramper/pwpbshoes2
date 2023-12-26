@@ -32,14 +32,15 @@ class dataOrderController extends Controller
         return view('admin.DataOrder.dataorder', compact('orders'));
     }
 
-    public function updateStatus(Request $request)
+    public function updateOrderStatus(Request $request, $id)
     {
-        $orderId = $request->input('order_id');
-        $newStatus = $request->input('status');
+        $request->validate([
+            'status' => 'required|in:1,2,3,4',
+        ]);
 
-        Order::where('id_order', $orderId)->update(['status' => $newStatus]);
+        Order::where('id_order', $id)->update(['status' => $request->input('status')]);
 
-        return redirect()->back()->with('success', 'Status updated successfully');
+        return redirect()->route('dataOrder')->with('success', 'Order status updated successfully.');
     }
 
     public function detail($id)
@@ -75,7 +76,7 @@ class dataOrderController extends Controller
             ];
         });
 
-        return view('admin.DataOrder.detaildataorder', [
+        return view('admin.DataOrder.detail', [
             'order' => $order,
             'orderNumber' => $orderNumber,
             'date' => $date,
